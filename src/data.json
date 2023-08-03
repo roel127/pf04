@@ -1,0 +1,50 @@
+[
+  {
+    "id": "0",
+    "coName": "KT",
+    "aptDate": "2023-08-01",
+    "aptTime": "09:00",
+    "userName": "김진일",
+    "userTel": "010-1234-5678"
+  },
+  {
+    "id": "1",
+    "coName": "SKT",
+    "aptDate": "2023-08-01",
+    "aptTime": "10:00",
+    "userName": "김진이",
+    "userTel": "010-1234-5678"
+  },
+  {
+    "id": "2",
+    "coName": "SKT",
+    "aptDate": "2023-08-01",
+    "aptTime": "11:00",
+    "userName": "김진삼",
+    "userTel": "010-1234-5678"
+  },
+  {
+    "id": "3",
+    "coName": "SKT",
+    "aptDate": "2023-08-01",
+    "aptTime": "12:00",
+    "userName": "김진사",
+    "userTel": "010-1234-5678"
+  },
+  {
+    "id": "4",
+    "coName": "LG",
+    "aptDate": "2023-08-01",
+    "aptTime": "13:00",
+    "userName": "김진오",
+    "userTel": "010-1234-5678"
+  },
+  {
+    "id": "5",
+    "coName": "LG",
+    "aptDate": "2023-08-01",
+    "aptTime": "14:00",
+    "userName": "김진육",
+    "userTel": "010-1234-5678"
+  }
+]
