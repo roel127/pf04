@@ -211,3 +211,34 @@ article>section{
   background-color: #004e89;
   color: #fff;
 }
+#terms{
+  width: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #004e89;
+}
+#terms>p{
+  font-size: 30px;
+  margin-bottom: 25px;
+  position: relative;
+}
+#terms>p>span{
+  width: 105px;
+  position: absolute;
+  top: 35px;left: 0;
+  border-bottom: 3px solid #004e89;
+}
+#terms>.termsCont{
+  height: 330px;
+  padding: 10px;
+  overflow: scroll;
+}
+#terms>.termsCont>dl{
+  margin-bottom: 10px;
+}
+#terms>.termsCont>dl>dt{
+  font-size: 20px;
+}
+#terms>.termsCont>dl>dd{
+  line-height: 20px;
+}

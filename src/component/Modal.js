@@ -1,10 +1,19 @@
 import {BiX} from 'react-icons/bi';
+import terms from '../terms.json';
+
+function Terms( {item} ){
+  return(
+    <dl>
+      <dt>{item.paragraph}</dt>
+      <dd>{item.content}</dd>
+    </dl>
+  )
+}
 
 export default function Modal(){
   function appointCloseClick(){
     document.getElementById('modal').style.display = 'none';
   }
-
   return(
     <div id="modal">
       <div id="view">
@@ -12,7 +21,7 @@ export default function Modal(){
           <ul>
             <li>
               <label htmlFor="coName">통신사</label>
-              <input type="text" id="coName" defaultValue=""/>
+              <input type="text" id="coName" />
             </li>
             <li>
               <label htmlFor="userName">이름</label>
@@ -32,8 +41,14 @@ export default function Modal(){
             </li>
           </ul>
           <p>
-            <input type="submit" />
+            <input type="submit" value="확인" />
           </p>
+        </div>
+        <div id='terms'>
+          <p>이용약관<span></span></p>
+          <div className='termsCont'>
+            {terms.map((item, index)=>( <Terms key={index} item={item} /> ))}
+          </div>
         </div>
         <p onClick={appointCloseClick}><BiX /></p>
       </div>

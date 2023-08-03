@@ -12,7 +12,6 @@ function App() {
   //   .then(data => setList(data));
   // })
   // useEffect(fetchData, [fetchData]);
-   
   return (
     <div id="wrap">
       <div id="container">
@@ -24,3 +23,6 @@ function App() {
 }
 
 export default App;
+
+// 날짜, 시간 > toLowerCase
+// coName === dropdown(e.target.value)

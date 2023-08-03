@@ -14,7 +14,6 @@ function ResultCheck( {checkToggle, selDate, selTime, able, openModal} ){
   )
 }
 
-
 function AddList( {checkToggle, list, openModal} ){
   const [drop, setDrop] = useState(false);
   if(!checkToggle){
@@ -43,7 +42,6 @@ function AddList( {checkToggle, list, openModal} ){
       </li>
     )
   }
-
   return(
     <div id="list">
       <h4>예약현황</h4>
@@ -66,9 +64,6 @@ export default function PreCheck( {list} ){
   const [selTime, setSelTime] = useState('희망시간');
   const [able, setAble] = useState('날짜와 시간을 정해주세요');
 
-  function changeValue(foo, e){
-    foo = e.target.value;
-  }
   function openModal(){
     document.getElementById('modal').style.display = 'block';
   }
@@ -134,40 +129,3 @@ export default function PreCheck( {list} ){
     </article>
   )
 }
-
-
-
-
-
-
-
-
-       {/* <ul>
-          <li>
-            <label>통신사</label>
-            <select defaultValue={selCo} onChange={(e)=>{setSelCo(e.target.value)}}>
-              <option>KT</option>
-              <option>SKT</option>
-              <option>LG</option>
-            </select>
-          </li>
-          <li>
-            <label htmlFor="desDate">희망날짜</label>
-            <input type="date" id="desDate" onChange={(e)=>setSelDate(e.target.value)} />
-          </li>
-          <li>
-            <label htmlFor="desTime">희망시간</label>
-            <select defaultValue={selTime} onChange={(e)=>setSelTime(e.target.value)}>
-              <option>09:00</option>
-              <option>10:00</option>
-              <option>11:00</option>
-              <option>12:00</option>
-              <option>13:00</option>
-              <option>14:00</option>
-              <option>15:00</option>
-              <option>16:00</option>
-              <option>17:00</option>
-              <option>18:00</option>
-            </select>
-          </li>
-        </ul> */}
