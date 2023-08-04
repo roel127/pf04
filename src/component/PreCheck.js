@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Button from "./Button";
 
 function ResultCheck( {checkToggle, selDate, selTime, able, openModal} ){
@@ -64,16 +64,22 @@ export default function PreCheck( {list} ){
   const [selTime, setSelTime] = useState('희망시간');
   const [able, setAble] = useState('날짜와 시간을 정해주세요');
 
+
   function openModal(){
     document.getElementById('modal').style.display = 'block';
   }
   function submitClick(e){
     e.preventDefault();
-    setSelCo(e.target.desCo.value);
-    setSelDate(e.target.desDate.value);
-    setSelTime(e.target.desTime.value);
-    const newList = list.filter(item=>item.coName === selCo);
-    if(newList.aptDate === selDate && newList.aptTime === selTime){
+    const desCo = e.target.desCo.value;
+    const desDate = e.target.desDate.value;
+    const desTime = e.target.desTime.value;
+    setSelCo(desCo);
+    setSelDate(desDate);
+    setSelTime(desTime);
+    const newList = list.filter(item=>item.coName === desCo);
+    console.log(newList);
+    console.log(desDate);
+    if(newList.aptDate === desDate && newList.aptTime === desTime){
       setAble('예약이 불가합니다');
     } else{setAble('예약이 가능합니다')}
   }

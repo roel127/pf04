@@ -21,7 +21,7 @@ export default function Modal(){
           <ul>
             <li>
               <label htmlFor="coName">통신사</label>
-              <input type="text" id="coName" />
+              <input type="text" id="coName" readOnly />
             </li>
             <li>
               <label htmlFor="userName">이름</label>
@@ -33,11 +33,11 @@ export default function Modal(){
             </li>
             <li>
               <label htmlFor="aptDate">희망날짜</label>
-              <input type="date" id="aptDate" />
+              <input type="date" id="aptDate" readOnly />
             </li>
             <li>
               <label htmlFor="aptTime">희망시간</label>
-              <input type="time" id="aptTime" />
+              <input type="time" id="aptTime" readOnly />
             </li>
           </ul>
           <p>

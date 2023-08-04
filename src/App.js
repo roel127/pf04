@@ -12,6 +12,7 @@ function App() {
   //   .then(data => setList(data));
   // })
   // useEffect(fetchData, [fetchData]);
+
   return (
     <div id="wrap">
       <div id="container">
