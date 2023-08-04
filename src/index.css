@@ -67,6 +67,7 @@ article>section{
   color: #fff;
   background-color: #004e89;
   cursor: pointer;
+  display: none;
 }
 
 /* list */
@@ -180,16 +181,16 @@ article>section{
 #cont{
   width: 50%;
 }
-#cont>ul>li{
+#cont>form>p{
   font-size: 30px;
   margin-bottom: 30px;
   display: flex;
   align-items: center;
 }
-#cont>ul>li>label{
+#cont>form>p>label{
   width: 30%;
 }
-#cont>ul>li>input{
+#cont>form>p>input{
   width: 60%;
   padding: 10px;
   box-sizing: border-box;
@@ -197,14 +198,15 @@ article>section{
   border-radius: 10px;
   background-color: #e2f2ff;
 }
-#cont>ul>li:first-child>input{
+#cont>form>p:first-child>input{
   width: 30%;
 }
-#cont>p{
-  text-align: center;
+#cont>form>p:last-child{
+  width: 90%;
+  justify-content: flex-end;
 }
-#cont>p>input{
-  width: 380px;
+#cont>form>p:last-child>input{
+  width: 40%;
   padding: 15px 0;
   border: none;
   border-radius: 10px;

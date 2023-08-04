@@ -10,39 +10,39 @@ function Terms( {item} ){
   )
 }
 
-export default function Modal(){
+export default function Modal( {selCo, selDate, selTime} ){
   function appointCloseClick(){
     document.getElementById('modal').style.display = 'none';
   }
   return(
     <div id="modal">
       <div id="view">
-        <div id="cont">      
-          <ul>
-            <li>
+        <div id="cont"> 
+          <form>
+            <p>
               <label htmlFor="coName">통신사</label>
-              <input type="text" id="coName" readOnly />
-            </li>
-            <li>
+              <input type="text" id="coName" value={selCo} readOnly />
+            </p>
+            <p>
               <label htmlFor="userName">이름</label>
               <input type="text" id="userName" />
-            </li>
-            <li>
+            </p>
+            <p>
               <label htmlFor="userNumber">전화번호</label>
               <input type="text" id="userNumber" />
-            </li>
-            <li>
+            </p>
+            <p>
               <label htmlFor="aptDate">희망날짜</label>
-              <input type="date" id="aptDate" readOnly />
-            </li>
-            <li>
+              <input type="date" id="aptDate" value={selDate} readOnly />
+            </p>
+            <p>
               <label htmlFor="aptTime">희망시간</label>
-              <input type="time" id="aptTime" readOnly />
-            </li>
-          </ul>
-          <p>
-            <input type="submit" value="확인" />
-          </p>
+              <input type="time" id="aptTime" value={selTime} readOnly />
+            </p>
+            <p>
+              <input type="submit" value="확인" />
+            </p>
+          </form>
         </div>
         <div id='terms'>
           <p>이용약관<span></span></p>

@@ -14,7 +14,7 @@ function ResultCheck( {checkToggle, selDate, selTime, able, openModal} ){
   )
 }
 
-function AddList( {checkToggle, list, openModal} ){
+function AddList( {checkToggle, list, toggleHandler} ){
   const [drop, setDrop] = useState(false);
   if(!checkToggle){
     return null;
@@ -51,22 +51,24 @@ function AddList( {checkToggle, list, openModal} ){
         {list.map((item)=>{return <List key={item.id} item={item}/>})}
       </ul>
       <p>
-        <Button onClick={openModal}>예약하기</Button>
+        <Button onClick={toggleHandler}>닫기</Button>
       </p>
   </div>
   )
 }
 
-export default function PreCheck( {list, selCo, selDate, selTime, able,submitClick} ){
+export default function PreCheck( {list, selCo, selDate, selTime, able, checkClick} ){
   const [checkToggle, setCheckToggle] = useState(false);
-
+  function toggleHandler(){
+    setCheckToggle(!checkToggle);
+  }
   function openModal(){
     document.getElementById('modal').style.display = 'block';
   }
   return(
     <article>
       <section className="search">
-        <form onSubmit={(e)=>{submitClick(e)}}>
+        <form onSubmit={(e)=>{checkClick(e)}}>
           <p>
             <label>통신사</label>
             <select defaultValue={selCo} name="desCo">
@@ -77,7 +79,7 @@ export default function PreCheck( {list, selCo, selDate, selTime, able,submitCli
           </p>
           <p>
             <label htmlFor="desDate">희망날짜</label>
-            <input type="date" id="desDate" name="desDate" />
+            <input type="date" id="desDate" name="desDate" required />
           </p>
           <p>
             <label htmlFor="desTime">희망시간</label>
@@ -96,7 +98,7 @@ export default function PreCheck( {list, selCo, selDate, selTime, able,submitCli
           </p>
           <p>
             <input type="submit" value="확인하기" />
-            <Button onClick={()=>{setCheckToggle(!checkToggle)}}>예약현황</Button>
+            <Button onClick={toggleHandler}>예약현황</Button>
           </p>
         </form>
       </section>
@@ -106,11 +108,12 @@ export default function PreCheck( {list, selCo, selDate, selTime, able,submitCli
         selTime={selTime} 
         able={able}
         openModal={openModal}
-        />
+      />
       <AddList 
         checkToggle={checkToggle} 
         list={list}
         openModal={openModal}
+        toggleHandler={toggleHandler}
       />
     </article>
   )
