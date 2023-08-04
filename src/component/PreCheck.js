@@ -57,31 +57,11 @@ function AddList( {checkToggle, list, openModal} ){
   )
 }
 
-export default function PreCheck( {list} ){
+export default function PreCheck( {list, selCo, selDate, selTime, able,submitClick} ){
   const [checkToggle, setCheckToggle] = useState(false);
-  const [selCo, setSelCo] = useState('KT');
-  const [selDate, setSelDate] = useState('희망날짜');
-  const [selTime, setSelTime] = useState('희망시간');
-  const [able, setAble] = useState('날짜와 시간을 정해주세요');
-
 
   function openModal(){
     document.getElementById('modal').style.display = 'block';
-  }
-  function submitClick(e){
-    e.preventDefault();
-    const desCo = e.target.desCo.value;
-    const desDate = e.target.desDate.value;
-    const desTime = e.target.desTime.value;
-    setSelCo(desCo);
-    setSelDate(desDate);
-    setSelTime(desTime);
-    const newList = list.filter(item=>item.coName === desCo);
-    console.log(newList);
-    console.log(desDate);
-    if(newList.aptDate === desDate && newList.aptTime === desTime){
-      setAble('예약이 불가합니다');
-    } else{setAble('예약이 가능합니다')}
   }
   return(
     <article>

@@ -5,19 +5,43 @@ import data from './data.json';
 
 function App() {
   const [list, setList] = useState(data);
+  const [selCo, setSelCo] = useState('KT');
+  const [selDate, setSelDate] = useState('희망날짜');
+  const [selTime, setSelTime] = useState('희망시간');
+  const [able, setAble] = useState('날짜와 시간을 정해주세요');
 
-  // const fetchData = useCallback(()=>{
-  //   fetch('./data.json')
-  //   .then(response => response.json())
-  //   .then(data => setList(data));
-  // })
-  // useEffect(fetchData, [fetchData]);
+  function submitClick(e){
+    e.preventDefault();
+    const desCo = e.target.desCo.value;
+    const desDate = e.target.desDate.value;
+    const desTime = e.target.desTime.value;
+    setSelCo(desCo);
+    setSelDate(desDate);
+    setSelTime(desTime);
+    const newList = list.filter(item=>{
+      return (item.coName === desCo && item.aptDate === desDate)
+    });
+    if(newList.filter(item=>item.aptTime === desTime).length === 0){
+      setAble('예약이 가능합니다')
+    } else{setAble('예약이 불가합니다')}
+  }
 
   return (
     <div id="wrap">
       <div id="container">
-        <PreCheck list={list} />
-        <Modal />
+        <PreCheck 
+          list={list} 
+          selCo={selCo}
+          selDate={selDate}
+          selTime={selTime}
+          able={able}
+          submitClick={submitClick}
+        />
+        <Modal 
+          sleCo={selCo}
+          selDate={selDate}
+          selTime={selTime}
+        />
       </div>
     </div>
   );
