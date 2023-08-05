@@ -103,7 +103,7 @@ article>section{
   z-index: 100;
 }
 #list>.filterDrop>li{
-  padding: 10px 0;
+  padding: 5px 0;
   border-bottom: 1px solid #9d9d9d;
 }
 #list>.filterDrop>li:last-child{

@@ -10,7 +10,7 @@ function Terms( {item} ){
   )
 }
 
-export default function Modal( {selCo, selDate, selTime} ){
+export default function Modal( {selCo, selDate, selTime, submitClick} ){
   function appointCloseClick(){
     document.getElementById('modal').style.display = 'none';
   }
@@ -18,18 +18,18 @@ export default function Modal( {selCo, selDate, selTime} ){
     <div id="modal">
       <div id="view">
         <div id="cont"> 
-          <form>
+          <form onSubmit={(e)=>{submitClick(e)}}>
             <p>
               <label htmlFor="coName">통신사</label>
               <input type="text" id="coName" value={selCo} readOnly />
             </p>
             <p>
               <label htmlFor="userName">이름</label>
-              <input type="text" id="userName" />
+              <input type="text" id="userName" name='userName' required/>
             </p>
             <p>
-              <label htmlFor="userNumber">전화번호</label>
-              <input type="text" id="userNumber" />
+              <label htmlFor="userTel">전화번호</label>
+              <input type="text" id="userTel" name='userTel' required/>
             </p>
             <p>
               <label htmlFor="aptDate">희망날짜</label>

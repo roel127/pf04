@@ -14,7 +14,7 @@ function ResultCheck( {checkToggle, selDate, selTime, able, openModal} ){
   )
 }
 
-function AddList( {checkToggle, list, toggleHandler} ){
+function AddList( {checkToggle, list, toggleHandler, filterClick} ){
   const [drop, setDrop] = useState(false);
   if(!checkToggle){
     return null;
@@ -25,9 +25,10 @@ function AddList( {checkToggle, list, toggleHandler} ){
     }
     return(
       <ul className="filterDrop">
-        <li>A</li>
-        <li>B</li>
-        <li>C</li>
+        <li onClick={()=>filterClick('All')}>All</li>
+        <li onClick={()=>filterClick('KT')}>KT</li>
+        <li onClick={()=>filterClick('SKT')}>SKT</li>
+        <li onClick={()=>filterClick('LG')}>LG</li>
       </ul>
     )
   }
@@ -57,7 +58,7 @@ function AddList( {checkToggle, list, toggleHandler} ){
   )
 }
 
-export default function PreCheck( {list, selCo, selDate, selTime, able, checkClick} ){
+export default function PreCheck( {list, selCo, selDate, selTime, able, checkClick, filterClick} ){
   const [checkToggle, setCheckToggle] = useState(false);
   function toggleHandler(){
     setCheckToggle(!checkToggle);
@@ -114,6 +115,7 @@ export default function PreCheck( {list, selCo, selDate, selTime, able, checkCli
         list={list}
         openModal={openModal}
         toggleHandler={toggleHandler}
+        filterClick={filterClick}
       />
     </article>
   )
