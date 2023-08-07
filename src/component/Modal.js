@@ -25,11 +25,11 @@ export default function Modal( {selCo, selDate, selTime, submitClick} ){
             </p>
             <p>
               <label htmlFor="userName">이름</label>
-              <input type="text" id="userName" name='userName' required/>
+              <input type="text" id="userName" name='userName' placeholder='이름' required/>
             </p>
             <p>
               <label htmlFor="userTel">전화번호</label>
-              <input type="text" id="userTel" name='userTel' required/>
+              <input type="number" id="userTel" name='userTel' placeholder='010부터 숫자만 기입해주세요' required/>
             </p>
             <p>
               <label htmlFor="aptDate">희망날짜</label>

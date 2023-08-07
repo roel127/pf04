@@ -37,8 +37,8 @@ function AddList( {checkToggle, list, toggleHandler, filterClick} ){
       <li>
         <dl>
           <dt>{item.coName}</dt>
-          <dd>{item.aptDate}</dd>
-          <dd>{item.aptTime}</dd>
+          <dd>{item.aptDate.slice(0,10)}</dd>
+          <dd>{item.aptDate.substr(11)}</dd>
         </dl>
       </li>
     )

@@ -1,6 +1,6 @@
 import PreCheck from "./component/PreCheck";
 import Modal from "./component/Modal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import data from './data.json';
 
 function App() {
@@ -10,6 +10,9 @@ function App() {
   const [selTime, setSelTime] = useState('희망시간');
   const [able, setAble] = useState('날짜와 시간을 정해주세요');
   const [sortList , setSortList] = useState(list);
+  console.log(list);
+
+  useEffect(()=>{setSortList(list)}, [list]);
 
   function filterClick(sortBy){
     setSortList(list);
@@ -17,7 +20,7 @@ function App() {
       setSortList(list);
     } else{
       setSortList(list.filter(item=>{return item.coName === sortBy}).sort((a,b)=>{
-        return a.aptDate < b.aptDate ? -1 : 1 && a.aptTime < b.aptTime ? -1 : 1
+        return a.aptDate.replace(/-/g, "") < b.aptDate.replace(/-/g, "") ? -1 : 1
       }))
     }
   }
@@ -29,10 +32,8 @@ function App() {
     setSelCo(desCo);
     setSelDate(desDate);
     setSelTime(desTime);
-    const newList = list.filter(item=>{
-      return (item.coName === desCo && item.aptDate === desDate)
-    });
-    if(newList.filter(item=>item.aptTime === desTime).length === 0){
+    const newList = list.filter(item => (item.coName === desCo));
+    if(newList.filter(item=>item.aptDate === desDate + " " + desTime).length === 0){
       setAble('예약이 가능합니다')
       document.querySelector('.result>button').style.display = 'inline-block';
     } else{
@@ -44,19 +45,22 @@ function App() {
     e.preventDefault();
     const aptName = e.target.userName.value;
     const aptTel = e.target.userTel.value;
+    const aptTelForm = aptTel.slice(0,3) + '-' + aptTel.slice(3,7) + '-' + aptTel.slice(7,11);
     const lastId = list.sort((a,b)=>{
       return Number(a.id) < Number(b.id) ? -1 : 1
     })[list.length-1].id
     const pushData = {
       id: String(Number(lastId)+1),
       coName: selCo,
-      aptDate: selDate,
-      aptTime: selTime,
+      aptDate: selDate + " " + selTime,
       userName: aptName,
-      userTel: aptTel
+      userTel: aptTelForm
     }
-    // list의 Date, Time과 aptDate,aptTime이 같으면 예약 불가
-    setList([...list, pushData]);
+    if(list.filter(item=>{
+      return item.aptDate === selDate
+    }).length === 0){setList([...list, pushData])} else{
+      alert('해당 일정은 불가합니다')
+    }
   }
 
   return (

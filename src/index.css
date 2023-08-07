@@ -214,6 +214,10 @@ article>section{
   color: #fff;
   cursor: pointer;
 }
+#cont input::-webkit-outer-spin-button,input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 #terms{
   width: 50%;
   padding: 10px;
