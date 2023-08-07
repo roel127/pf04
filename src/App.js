@@ -10,12 +10,10 @@ function App() {
   const [selTime, setSelTime] = useState('희망시간');
   const [able, setAble] = useState('날짜와 시간을 정해주세요');
   const [sortList , setSortList] = useState(list);
-  console.log(list);
 
   useEffect(()=>{setSortList(list)}, [list]);
 
   function filterClick(sortBy){
-    setSortList(list);
     if(sortBy === 'All'){
       setSortList(list);
     } else{
@@ -65,8 +63,6 @@ function App() {
       document.querySelector('#modal').style.display = 'none';
       setAble('예약이 불가합니다');
       document.querySelector('.result>button').style.display = 'none';
-    } else{
-      alert('해당 일정은 불가합니다')
     }
   }
 
@@ -95,5 +91,4 @@ function App() {
 
 export default App;
 
-// 날짜, 시간 > toLowerCase
-// coName === dropdown(e.target.value)
+// 예약확인 >> 전화번호 뒷자리(4자리) + 패스워드
