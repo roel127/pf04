@@ -25,10 +25,10 @@ function AddList( {checkToggle, list, toggleHandler, filterClick} ){
     }
     return(
       <ul className="filterDrop">
-        <li onClick={()=>filterClick('All')}>All</li>
-        <li onClick={()=>filterClick('KT')}>KT</li>
-        <li onClick={()=>filterClick('SKT')}>SKT</li>
-        <li onClick={()=>filterClick('LG')}>LG</li>
+        <li onClick={()=>{ filterClick('All'); setDrop(!drop); }}>All</li>
+        <li onClick={()=>{ filterClick('KT'); setDrop(!drop); }}>KT</li>
+        <li onClick={()=>{ filterClick('SKT'); setDrop(!drop); }}>SKT</li>
+        <li onClick={()=>{ filterClick('LG'); setDrop(!drop); }}>LG</li>
       </ul>
     )
   }

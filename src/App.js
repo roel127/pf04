@@ -58,7 +58,14 @@ function App() {
     }
     if(list.filter(item=>{
       return item.aptDate === selDate
-    }).length === 0){setList([...list, pushData])} else{
+    }).length === 0){
+      setList([...list, pushData]);
+      document.querySelector('#modal form>p:nth-of-type(2)>input').value = "";
+      document.querySelector('#modal form>p:nth-of-type(3)>input').value = "";
+      document.querySelector('#modal').style.display = 'none';
+      setAble('예약이 불가합니다');
+      document.querySelector('.result>button').style.display = 'none';
+    } else{
       alert('해당 일정은 불가합니다')
     }
   }
