@@ -14,7 +14,6 @@ article{
 article>section{
   width: 50%;
 }
-.search>form{}
 .search>form>p{
   margin-bottom: 50px;
   font-size: 30px;
@@ -82,7 +81,7 @@ article>section{
 }
 #list>button{
   position: absolute;
-  top: 15px; right: 0;
+  top: 0; right: 0;
   width: 80px;
   padding: 7px 0;
   border: none;
@@ -93,7 +92,7 @@ article>section{
 }
 #list>.filterDrop{
   position: absolute;
-  right: 0; top: 44px;
+  right: 0; top: 29px;
   width: 80px;
   text-align: center;
   background-color: rgba(255 255 255 /.8);
@@ -101,6 +100,7 @@ article>section{
   color: #078ae4;
   box-sizing: border-box;
   z-index: 100;
+  cursor: pointer;
 }
 #list>.filterDrop>li{
   padding: 5px 0;

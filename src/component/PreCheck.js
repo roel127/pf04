@@ -44,7 +44,7 @@ function AddList( {checkToggle, list, toggleHandler, filterClick} ){
     )
   }
   return(
-    <div id="list">
+    <section id="list">
       <h4>예약현황</h4>
       <Button onClick={()=>{setDrop(!drop)}}>Filter</Button>
       <DropDown drop={drop}/>
@@ -54,15 +54,15 @@ function AddList( {checkToggle, list, toggleHandler, filterClick} ){
       <p>
         <Button onClick={toggleHandler}>닫기</Button>
       </p>
-  </div>
+    </section>
   )
 }
 
-export default function PreCheck( {list, selCo, selDate, selTime, able, checkClick, filterClick} ){
-  const [checkToggle, setCheckToggle] = useState(false);
-  function toggleHandler(){
-    setCheckToggle(!checkToggle);
-  }
+export default function PreCheck( {list, selCo, selDate, selTime, able, checkClick, filterClick, toggleHandler, checkToggle} ){
+  // const [checkToggle, setCheckToggle] = useState(false);
+  // function toggleHandler(){
+  //   setCheckToggle(!checkToggle);
+  // }
   function openModal(){
     document.getElementById('modal').style.display = 'block';
   }

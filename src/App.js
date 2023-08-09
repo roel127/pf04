@@ -10,15 +10,20 @@ function App() {
   const [selTime, setSelTime] = useState('희망시간');
   const [able, setAble] = useState('날짜와 시간을 정해주세요');
   const [sortList , setSortList] = useState(list);
+  const [checkToggle, setCheckToggle] = useState(false);
 
   useEffect(()=>{setSortList(list)}, [list]);
+
+  function toggleHandler(){
+    setCheckToggle(!checkToggle);
+  }
 
   function filterClick(sortBy){
     if(sortBy === 'All'){
       setSortList(list);
     } else{
       setSortList(list.filter(item=>{return item.coName === sortBy}).sort((a,b)=>{
-        return a.aptDate.replace(/-/g, "") < b.aptDate.replace(/-/g, "") ? -1 : 1
+        return a.aptDate/* .replace(/-/g, "") */ < b.aptDate/* .replace(/-/g, "") */ ? -1 : 1
       }))
     }
   }
@@ -31,12 +36,17 @@ function App() {
     setSelDate(desDate);
     setSelTime(desTime);
     const newList = list.filter(item => (item.coName === desCo));
-    if(newList.filter(item=>item.aptDate === desDate + " " + desTime).length === 0){
-      setAble('예약이 가능합니다')
-      document.querySelector('.result>button').style.display = 'inline-block';
+    if(checkToggle === Boolean(true)){
+      setCheckToggle(!checkToggle);
+      setAble('확인하기를 눌러주세요');
     } else{
-      setAble('예약이 불가합니다');
-      document.querySelector('.result>button').style.display = 'none';
+      if(newList.filter(item=>item.aptDate === desDate + " " + desTime).length === 0){
+        setAble('예약이 가능합니다')
+        document.querySelector('.result>button').style.display = 'inline-block';
+      } else{
+        setAble('예약이 불가합니다');
+        document.querySelector('.result>button').style.display = 'none';
+      }
     }
   }
   function submitClick(e){
@@ -63,6 +73,8 @@ function App() {
       document.querySelector('#modal').style.display = 'none';
       setAble('예약이 불가합니다');
       document.querySelector('.result>button').style.display = 'none';
+    } else{
+      alert('예약이 불가합니다.');  // 확인 시점까지는 예약이 가능했으나 양식을 채우는 도중 예약이 찼을 때 [임시 alert]
     }
   }
 
@@ -77,6 +89,8 @@ function App() {
           able={able}
           checkClick={checkClick}
           filterClick={filterClick}
+          checkToggle={checkToggle}
+          toggleHandler={toggleHandler}
         />
         <Modal 
           selCo={selCo}
@@ -91,4 +105,6 @@ function App() {
 
 export default App;
 
-// 예약확인 >> 전화번호 뒷자리(4자리) + 패스워드
+// 예약조회 >> 전화번호 뒷자리(4자리) + 패스워드
+// <button> 예약조회, 예약현황 ... 확인하기
+// modal
